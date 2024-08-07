@@ -15,6 +15,7 @@ const Listings = async ({queryKeywords}: ListingsProps) => {
 
         if (response.ok) {
             const data = await response.json();
+            
             return data.listings;
         }
     }
