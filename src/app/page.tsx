@@ -23,6 +23,8 @@ export default function Home() {
 		}
 	}
 
+	console.log(process.env.domain);
+
 	useEffect(() => {
 		fetchFeaturedProducts();
 	}, []);
