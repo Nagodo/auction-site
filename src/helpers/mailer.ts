@@ -37,14 +37,14 @@ function GetMailOptions(emailType: EmailType, email: string, hashedToken: string
             from: process.env.EMAIL_USER,
             to: email,
             subject: 'Email Verification',
-            text: `Please verify your email by clicking on the following link: ${process.env.DOMAIN}/verify/confirm?token=${hashedToken}`,
+            text: `Please verify your email by clicking on the following link: ${process.env.NEXT_PUBLIC_DOMAIN}/verify/confirm?token=${hashedToken}`,
         };
     } else if (emailType === EmailType.FORGOT_PASSWORD) {
         return {
             from: process.env.EMAIL_USER,
             to: email,
             subject: 'Reset Password',
-            text: `Please reset your password by clicking on the following link: ${process.env.DOMAIN}/reset-password?token=${hashedToken}`,
+            text: `Please reset your password by clicking on the following link: ${process.env.NEXT_PUBLIC_DOMAIN}/reset-password?token=${hashedToken}`,
         };
     }
 }
