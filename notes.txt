@@ -1,0 +1,2 @@
+Brug <Suspense/> rundt om hvis der skal streames. f.eks når man går ind på /products så loades products siden med det samme mens alle produkter bliver loadet uden at stoppe det hele.
+Brug import "server-only" ved server kode. Det giver en error hvis et client component forsøger at bruge server ting

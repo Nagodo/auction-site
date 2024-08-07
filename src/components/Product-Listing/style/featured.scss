@@ -1,0 +1,22 @@
+.featuredListing {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: purple;
+
+    border-radius: var(--radius);
+
+    p {
+        color: var(--price-color);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+
+        border-radius: var(--radius);
+    }
+
+}

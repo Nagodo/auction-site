@@ -1,0 +1,151 @@
+.header {
+    position: absolute;
+
+    width: 100%;
+    height: var(--header-height);
+
+    background-color: white;
+
+    margin: 0;
+    margin-top: 0;
+
+    border-bottom: 1px solid rgba(225,225,225,255);
+
+    .header-content {
+        position: absolute;
+
+        width: var(--max-width);
+        height: 100%;
+
+        left: 50%;
+        transform: translateX(-50%);
+        
+        
+        .logo {
+            position: absolute;
+
+            left: 10px;
+            top: 50%;
+
+            width: 50px;
+            height: 50px;
+
+            transform: translateY(-50%);
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .searchbar-container {
+            position: absolute;
+
+            left: 250px;
+            top: 50%;
+
+
+            width: 500px;
+            height: 42px;
+
+            transform: translateY(-50%);
+
+        }
+
+        .header-actions {
+            position: absolute;
+
+            right: 0px;
+
+            width: 400px;
+            height: 100%;
+
+            .header-action-btn {
+                position: relative;
+
+                float: right;
+                top: 50%;  
+                transform: translateY(-50%);
+
+                margin-right: 20px;
+
+                &.new-listing {
+                    width: 130px;
+                    height: 50px;
+
+                    border-radius: var(--radius);
+
+                    background-color: var(--primary-color);
+                }
+
+                &.login {
+                    width: 100px;
+                    height: 50px;
+
+                    background-color: var(--primary-color);
+                }
+            }
+            
+           
+        }
+
+        
+    }
+
+    
+}
+
+.searchbar {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid #c5c6c9;
+    border-radius: var(--radius);
+
+    .input {
+        position: absolute;
+
+        border: none;
+        outline: none;
+
+        left: 10px;
+
+        height: 100%;
+        width: calc(100% - 50px - 10px - 10px);
+
+        color: #62646a;
+    }
+
+    .search-btn {
+        position: absolute;
+
+        height: 100%;
+        width: 50px;
+
+        border-top-right-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+
+        right: 0;
+
+        background-color: rgb(39, 39, 39);
+
+        .icon {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            font-size: 25px;
+
+            color: white;
+        }
+    }
+}
