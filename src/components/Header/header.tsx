@@ -1,6 +1,6 @@
 import "./header.scss";
 import SearchBar from "./searchbar";
-import HeaderActions from "./header-actions";
+import HeaderActions from "./Actions/header-actions";
 import HeaderLogo from "./header-logo";
 
 const Header = () => {

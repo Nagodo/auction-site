@@ -1,5 +1,5 @@
 "use client"
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { CredentialsForm } from "./credentialsForm";
@@ -24,6 +24,7 @@ export function CredentialsLogin(props: CredentialsLoginProps) {
 
         if (signInResponse && !signInResponse.error) {
             router.push("/");
+            window.location.reload();
         } else {
             setError("Invalid credentials");
         }
