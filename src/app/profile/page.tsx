@@ -1,14 +1,24 @@
+import "@/style/profile.scss"
+import Header from '@/components/Header/header'
 import React from 'react'
+import ProfilePicture from "./profilepicture/profilepicture"
 
 export const metadata = {
-    title: 'Profile',
-    description: 'This is the profile page',
+    title: 'Min side',
 }
 
-function Profile() {
-  return (
-    <div>Profile</div>
-  )
+async function Profile() {
+
+    return (
+        <div className="profilepage bg-zinc-50"> 
+
+            <Header />
+
+            <div className="content">
+                <ProfilePicture />
+            </div>
+        </div>
+    )
 }
 
 export default Profile

@@ -1,0 +1,73 @@
+.profilepage {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    .content {
+        position: absolute;
+
+        width: var(--max-width);
+
+        top: var(--header-height);
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        height: var(--content-height);
+
+        border: 1px solid black;
+    }
+}
+
+.profilpicture {
+    position: absolute;
+
+    width: 300px;
+    height: 350px;
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+    .profileimage {
+        position: absolute;
+
+        width: 300px;
+        height: 300px;
+
+        img {
+            border-radius: var(--radius);
+        }
+
+    }
+
+    .editimage-btn {
+        position: absolute;
+
+        width: 100%;
+        height: 42px;
+
+        bottom: 0;
+
+        border: 1px solid #c5c6c9;
+        border-radius: var(--radius);
+
+        .btn {
+            width: 100%;
+            height: 100%;
+
+            outline: none;
+            border: none;
+
+            color: #62646a;
+
+            font-size: 16px;
+            
+        }
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+}

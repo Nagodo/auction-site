@@ -68,6 +68,8 @@ export const authConfig: NextAuthOptions = {
                         },
                     });
                 }
+            } else {
+                user.image = "/images/testimage1.jpg";
             }
 
             return true;
