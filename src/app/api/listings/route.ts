@@ -8,6 +8,7 @@ import { NextResponse, NextRequest } from "next/server";
 const RESULTS_PER_PAGE = 20;
 
 export async function POST(request: NextRequest, response: NextResponse) {
+    let listingsData: IListing[] = []; 
 
     try {
         if (!request.body) {
@@ -18,12 +19,8 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
         const data = await request.json();
 
-    
-        let listingsData: IListing[] = []; 
-    
-        // KEYWORD SEARCH
+        //KEYWORD SEARCH
         const keywords = data.keywords;
-    
         const keywordListings = await prisma.listing.findMany({
             where: {
                 OR: keywords.map((keyword: string) => {
@@ -47,6 +44,14 @@ export async function POST(request: NextRequest, response: NextResponse) {
                 type: ConvertType(listing.type)
             });
         });
+
+    } catch (error) {
+        return NextResponse.json({
+            message: "Error1"
+        });
+    }
+
+    try {
 
         //REMAINING LISTINGS
         if (listingsData.length < RESULTS_PER_PAGE) {
@@ -74,15 +79,15 @@ export async function POST(request: NextRequest, response: NextResponse) {
                 });
             });
         }
-
+        console.log("6");
         return NextResponse.json({
             listings: listingsData
         });
 
     } catch (error) {
-       
+
         return NextResponse.json({
-            message: "Error"
+            message: "Error2"
         });
     }
 }

@@ -20,6 +20,7 @@ model User {
 	email     String   @unique
 	name      String
 	password  String?
+	profileImage String?
 
 	emailVerified Boolean @default(false)
 	verifyToken String?

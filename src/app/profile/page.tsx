@@ -1,6 +1,6 @@
 import "@/style/profile.scss"
 import Header from '@/components/Header/header'
-import React from 'react'
+import React, { Suspense } from 'react'
 import ProfilePicture from "./profilepicture/profilepicture"
 
 export const metadata = {
@@ -15,8 +15,13 @@ async function Profile() {
             <Header />
 
             <div className="content">
-                <ProfilePicture />
+                <p>Test suspernse her</p>
+                <Suspense>
+                    <ProfilePicture />
+                </Suspense>
             </div>
+
+            
         </div>
     )
 }

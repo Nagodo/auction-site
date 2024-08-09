@@ -8,16 +8,23 @@ interface ListingsProps {
 const Listings = async ({queryKeywords}: ListingsProps) => {
 	
     async function fetchListings() {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/listings`, {
-            method: 'POST',
-            body: JSON.stringify({keywords: queryKeywords}),
-        });
 
-        if (response.ok) {
-            const data = await response.json();
-            
-            return data.listings;
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/listings`, {
+                method: 'POST',
+                body: JSON.stringify({keywords: queryKeywords}),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                
+                return data.listings;
+            }
+        } catch (error) {
+            console.error(error);
         }
+
+        return undefined;
     }
 
     let listings: IListing[] = await fetchListings();

@@ -65,11 +65,19 @@ export const authConfig: NextAuthOptions = {
                         data: {
                             email: user.email as string,
                             name: user.name as string,
+                            profileImage: user.image as string,
                         },
                     });
                 }
             } else {
-                user.image = "/images/testimage1.jpg";
+
+                const existingUser = await prisma.user.findUnique({
+                    where: {
+                        email: user.email as string,
+                    },
+                });
+
+                user.image = existingUser?.profileImage || "/images/profile-default.svg";
             }
 
             return true;
