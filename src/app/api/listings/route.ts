@@ -3,6 +3,7 @@ import { IListing } from "@/interfaces/IListing";
 import { ListingType } from "@/enums/ListingType";
 import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
+import { ConvertListingType } from "@/helpers/listingTypeConverter";
 
 
 const RESULTS_PER_PAGE = 20;
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
                 price: listing.price,
                 description: listing.description,
                 image: "https://via.placeholder.com/150",
-                type: ConvertType(listing.type)
+                type: ConvertListingType(listing.type)
             });
         });
 
@@ -75,7 +76,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
                     price: listing.price,
                     description: listing.description,
                     image: "https://via.placeholder.com/150",
-                    type: ConvertType(listing.type)
+                    type: ConvertListingType(listing.type)
                 });
             });
         }
@@ -90,14 +91,4 @@ export async function POST(request: NextRequest, response: NextResponse) {
             message: "Error2"
         });
     }
-}
-
-function ConvertType(type: string): ListingType {
-    if (type === "Sale") {
-        return ListingType.Sale;
-    } else if (type === "Auction") {
-        return ListingType.Auction;
-    }
-
-    return ListingType.Sale;
 }

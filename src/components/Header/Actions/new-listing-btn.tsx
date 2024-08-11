@@ -11,7 +11,7 @@ const NewListingBtn = () => {
 
     return (
         <div className="new-listing header-action-btn" onClick={handleNewListingClicked}>
-                
+            <p>Opret annonce</p>
         </div>
     )
 }

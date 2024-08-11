@@ -27,6 +27,7 @@ const FeaturedListings = () => {
     
     return (
         <div className="featured-listings">
+			
 
             {featuredListings && featuredListings.map((product: IListing, index: number) => (
                 

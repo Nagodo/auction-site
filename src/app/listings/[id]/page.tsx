@@ -1,6 +1,6 @@
 import "@/style/listingpage.scss"
 import Header from "@/components/Header/header"
-import ImageGroup from "@/components/Listing/imagegroup"
+import ImageGroup from "@/components/ListingSite/imagegroup"
 
 interface ListingPageProps {
     params: {

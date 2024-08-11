@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import LoginAction from "./login-action";
 import NewListingBtn from "./new-listing-btn";
 import ProfileAction from "./profile-actions";
+import CategoriesBtn from "./categories-btn";
 
 const HeaderActions = async () => {
     
@@ -13,6 +14,10 @@ const HeaderActions = async () => {
 
     return (
         <div className="header-actions">
+
+            <CategoriesBtn />
+            <NewListingBtn />
+
             
             {isLoggedIn && (
                 <ProfileAction profilePicture = {session?.user?.image} />
@@ -22,7 +27,7 @@ const HeaderActions = async () => {
                 <LoginAction />
             )}
 
-            <NewListingBtn />
+            
             
         </div>
     )

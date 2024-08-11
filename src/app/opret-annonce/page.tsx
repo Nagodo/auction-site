@@ -28,7 +28,7 @@ const NewListing = async () => {
     }
   
     return (
-        <div className="newlisting bg-zinc-50">
+        <div className="newlisting">
             <Header />
 
             <div className="content">

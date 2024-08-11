@@ -4,96 +4,287 @@
     width: 100%;
     height: 100%;
 
-    .content {
+    background-color: white;
+
+    >.content {
         position: absolute;
 
-        width: var(--max-width);
+        width: 100%;
+        height: calc(100% - var(--header-height));
 
-        top: 6vh;
-        left: 50%;
-
-        transform: translateX(-50%);
-
-        height: 850px;
+        top: var(--header-height);
+   
+        overflow: auto;
     }
 }
 
 .new-listing-form {
-    position: absolute;
+    position: relative;
 
-    width: 100%;
-    height: 100%;
+    width: 1100px;
+    height: auto;
 
+    left: 50%;
+    transform: translateX(-50%);
 
-    .form {
-        position: absolute;
+    margin-top: 20px;
+    margin-bottom: 100px;
 
-        width: 1000px;
-        height: 800px;
+    .form-section {
+        position: relative;
 
-        left: 50%;
-        transform: translateX(-50%);
+        margin-bottom: 10px;
 
-        border: 1px solid black;
+        width: 100%;
+       
+        height: auto;
 
+        border-bottom: var(--default-border);
+
+        padding-bottom: 20px;
+
+        >.title {
+            position: relative;
+
+            width: 400px;
+            height: 35px;
+
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        >.content {
+            position: relative;
+
+            bottom: 0px;
+
+            width: 100%;
+            height: auto;
+
+            margin-bottom: 10px;
+
+         
+        }
     }
 
 }
 
-.select-listing-type {
-    position: absolute;
 
-    width: 750px;
-    height: 500px;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-    display: flex;
-
-    justify-content: space-evenly;
-    align-items: center;
-    
-    .type {
-        
+.new-listing-form {
+    .text-input {
         position: relative;
-        
-        
-        width: 300px;
-        height: 300px;
 
-        float: left;
+        width: 100%;
+        height: 60px;
 
-        border-radius: var(--radius);
+        margin-bottom: 10px;
 
-        transition: all 0.3s;
+        >.title {
+            position: relative;
 
-        &:hover {
-            cursor: pointer;
-            border-radius: calc(var(--radius) * 5);
+            width: 100%;
+            height: 25px;
+
+            top: 0; 
         }
 
-        .icon {
-            position: absolute;
+        .input-container {
 
-            top: 50%;
-            left: 50%;
+            position: relative;
 
-            font-size: 200px;
-
-            transform: translate(-50%, -50%);
-        }
-
-        .label {
-            position: absolute;
+            width: 100%;
+            height: 42px;
 
             bottom: 0;
-            left: 50%;
 
-            transform: translateX(-50%);
+            border: 1px solid #c5c6c9;
+            border-radius: var(--radius); 
 
-            font-size: 24px;
+            background-color: white;
+
+            input {
+                position: absolute;
+
+                border: none;
+                outline: none;
+
+                background-color: white;
+
+                left: 10px;
+
+                height: 100%;
+                width: calc(100% - 10px - 10px);
+
+                color: #62646a;
+                font-size: 16px;
+            }
+        }
+
+        
+    }
+
+    .image-input {
+        position: relative;
+
+        width: 100%;
+        height: 300px;
+
+
+        .images {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+
+            .main-image {
+                position: absolute;
+
+                height: 100%;
+                width: 300px;
+
+                
+
+                >img {
+                    border-radius: var(--radius);
+                }
+            }
+
+            .other {
+                position: absolute;
+
+                height: 100%;
+                width: calc(100% - 300px - 10px);
+
+                right: 0;
+
+                >.image {
+                    position: relative;
+
+                    width: 145px;
+                    height: 145px;
+
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+
+                    background-color: white;
+
+                    float: left;
+
+                    >img {
+                        border-radius: var(--radius);
+                    }
+                }
+
+                
+            }
+        }
+    }
+
+    .two-slider-input {
+        position: relative;
+
+        width: 100%;
+        height: 60px;
+
+        margin-bottom: 10px;
+
+        >.title {
+            position: relative;
+
+            width: 100%;
+            height: 25px;
+
+            top: 0; 
+        }
+
+        .input-container {
+
+            position: relative;
+
+            width: 300px;
+            height: 42px;
+
+            bottom: 0;
+
+            border: 1px solid #c5c6c9;
+            border-radius: var(--radius); 
+
+            background-color: white;
+
+            .options {
+                position: absolute;
+
+                width: 100%;
+                height: 100%;
+                
+                .option {
+                    position: absolute;
+                    height: 100%;
+                    width: 50%;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    >p {
+                       font-size: 16px;
+                       color: black;
+                       
+                       &.active {
+                            color: white;
+                       }
+                    }
+
+                    &:first-child {
+                        left: 0;
+                    }
+
+                    &:last-child {
+                        right: 0;
+                    }
+                }
+            }
+
+            .selected-indicator {
+                position: absolute;
+
+                width: calc(100% - 10px);
+                height: calc(100% - 10px);
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-50%, -50%);
+
+                .selected {
+                    position: absolute;
+    
+                    transition: all 0.1s linear;
+    
+                    width: 50%;
+                    height: 100%;
+
+                    border-radius: var(--radius);
+    
+                    background-color: rgb(39, 96, 176);
+    
+                    &.left {
+                        transform: translateX(0);
+                    }
+    
+                    &.right {
+                        transform: translateX(100%);
+                    }
+                }
+            }
+            
+
+            
         }
     }
 }

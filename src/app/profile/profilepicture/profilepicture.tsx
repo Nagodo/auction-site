@@ -48,6 +48,10 @@ const ProfilePicture = () => {
         setShowEditor(false);
     }
 
+    function handleCloseBtnClicked() {
+        setShowEditor(false);
+    }
+
     return (
         <div className="profilepicture">
             <div className='profileimage'>
@@ -59,7 +63,7 @@ const ProfilePicture = () => {
                 <button onClick={handleEditImageClicked} className='btn'>Rediger billede</button>
             </div>
 
-            {showEditor && <PictureEditor currentImage = {profileImage} setImageCallback = {handleProfileImageChanged} />}
+            {showEditor && <PictureEditor currentImage = {profileImage} setImageCallback = {handleProfileImageChanged} closeBtnCallback = {handleCloseBtnClicked} />}
         </div>
 
     )

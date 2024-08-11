@@ -5,9 +5,10 @@ import { useRef, useState } from 'react';
 interface PictureEditorProps {
     currentImage: string;
     setImageCallback: (newImage: string) => void;
+    closeBtnCallback: () => void;
 }
 
-const PictureEditor = ({currentImage, setImageCallback}: PictureEditorProps) => {
+const PictureEditor = ({currentImage, setImageCallback, closeBtnCallback}: PictureEditorProps) => {
     const [imageSrc, setImageSrc] = useState<string>(currentImage);
    
         //TODO: check if this is safe
@@ -43,12 +44,20 @@ const PictureEditor = ({currentImage, setImageCallback}: PictureEditorProps) => 
         setImageSrc(url);
     }
 
+    function handleCloseBtnClicked() {
+        closeBtnCallback();
+    }
+
     return (
         <div className="picture-editor">
 
             <div className="faded-background"></div>
 
             <div className='editor'>
+                <div className='close-btn' onClick={handleCloseBtnClicked}>
+
+                </div>
+
                 <div className="preview">
                     <Image src={imageSrc} alt="Profile picture" fill = {true} />
                 </div>

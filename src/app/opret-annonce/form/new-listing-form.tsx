@@ -1,79 +1,31 @@
-"use client"
-
-import { FormEvent, useState } from "react";
-import { ListingFormData } from "./ListingFormData";
-import SelectListingType from "./select-listing-type";
-import { ListingType } from "@enums/ListingType";
-import NewAuctionForm from "./forms/AuctionForm";
-import NewSaleForm from "./forms/SaleForm";
-import { useRouter } from "next/navigation";
+import ImageInput from "./fields/image-input";
+import TextInput from "./fields/text-input";
+import TwoSliderInput from "./fields/two-slider-input";
+import FormSection from "./form-section";
 
 export default function NewListingForm() {
 
-    const router = useRouter();
-    const [listingData, setListingData] = useState<ListingFormData>(new ListingFormData());
 
-    function handleTypeSelected(type: ListingType) {
-        setListingData({
-            ...listingData,
-            listingType: type,
-            hasSelectedListingType: true
-        });
-    }
-
-    const handleFormSubmitted = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
- 
-        const formData = new FormData(event.currentTarget)
-
-        const response = await fetch('/api/newlisting', {
-            method: 'POST',
-            body: formData,
-        })
-
-        if (response.ok) {
-            const data = await response.json();
-            router.push(`/listings/${data.listingId}`);
-        }
-    }
-    
-
-    function GetForm() {
-        
-        if (listingData.listingType === ListingType.Sale) { 
-            return (
-                <NewSaleForm onSubmit={handleFormSubmitted} />
-            )
-        }
-
-
-        if (listingData.listingType === ListingType.Auction) { 
-            return (
-                <NewAuctionForm />
-            )
-        }
-
-    }
-    
-    if (!listingData.hasSelectedListingType) {
-        return (
-            <SelectListingType handleTypeSelected={handleTypeSelected} />
-        )
-    }
-
-    
     return (
         <div className="new-listing-form">
-            <h1>Opret ny annonce</h1>
+            <form>
+                <FormSection title="Titel">
+                    
+                    <TextInput id = "title" label="Opslags titel"  />
+                    {/* TODO: Make rich text editor */}
+                    <TextInput id = "description" label="Beskrivelse"  /> 
+                </FormSection>
 
-            <div className="form">
-                {GetForm()}
-            </div>
+                <FormSection title="Billeder">
+                    <ImageInput />
+                    
+                </FormSection>
 
-            <div>
-
-            </div>
-
+                <FormSection title="Salg">
+                    <TwoSliderInput id = "type" label="Type"/>
+                    <TextInput id = "price" label="Pris"  />
+                </FormSection>
+            </form>
         </div>
     );
 }
