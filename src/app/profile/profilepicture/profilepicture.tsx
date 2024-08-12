@@ -30,7 +30,7 @@ const ProfilePicture = () => {
     useEffect(() => {
         async function getAvatar() {
             const profileImagePath = await fetchAvatar();
-            console.log(profileImagePath);
+          
             if (profileImagePath) {
                 setProfileImage(profileImagePath);
             }

@@ -29,6 +29,12 @@ export async function GET(request: Request, response: NextResponse) {
         });
     }
 
+    if (user.profileImage === "" || user.profileImage === null) {
+        return NextResponse.json({
+            profileImagePath: session.user.image
+        });
+    }
+
     return NextResponse.json({
         profileImagePath: user.profileImage
     });
