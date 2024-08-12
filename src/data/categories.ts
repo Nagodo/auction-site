@@ -1,3 +1,8 @@
+export function GetMainCategories() {
+    return Object.keys(Categories);
+}
+
+
 export const Categories = {
     "Elektronik": {
 
@@ -45,6 +50,22 @@ export const Categories = {
                     
         },
 
-    }
+    },
+
+    "Tøj": {
+
+    },
+
+    "Test2": {
+
+    },
+
+    "Test3": {
+
+    },
+
+    "Test4": {
+
+    },
 
 }
