@@ -30,7 +30,7 @@ const Header = () => {
                         
                         {GetMainCategories().map((category) => {
                             return (
-                            <div className="category">
+                            <div className="category" key={category}>
                                 <p>{category}</p>
                             </div>
                             )
