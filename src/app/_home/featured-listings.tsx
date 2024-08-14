@@ -32,7 +32,7 @@ const FeaturedListings = () => {
             {featuredListings && featuredListings.map((product: IListing, index: number) => (
                 
                 <div className="listing" key={index}>
-                    <FeaturedListing title = {product.title}/>
+                    <FeaturedListing title = {product.title} id = {1} thumbnail="" price={99}/>
                 </div>
                 
             ))}
