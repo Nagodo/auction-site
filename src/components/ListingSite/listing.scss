@@ -12,8 +12,6 @@
 
         top: 0;
 
-        background-color: rgb(25, 116, 73);
-
         .image-container {
             position: absolute;
 
@@ -24,10 +22,6 @@
 
             width: 680px;
             height: 96%;
-
-            background-color: red;
-
-        
 
             img {
                 width: 100%;
@@ -50,8 +44,7 @@
 
         bottom: 0;
 
-        background-color: rgb(59, 230, 150);
-
+       
         .image-container {
             position: relative;
 
@@ -60,8 +53,6 @@
 
             width: 120px;
             height: 96%;
-
-            background-color: red;
 
             &:hover {
                 cursor: pointer;
