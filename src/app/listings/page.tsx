@@ -16,7 +16,7 @@ async function ListingsPage({ searchParams }: any) {
 	const searchKeywords = TextToKeywords([query]);
 	
 	return (
-		<div className="listingspage bg-zinc-50">
+		<div className="listingspage">
 			<Header />
 
 			<div className="content">

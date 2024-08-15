@@ -10,7 +10,7 @@ export const metadata = {
 async function Profile() {
 
     return (
-        <div className="profilepage bg-zinc-50"> 
+        <div className="profilepage"> 
 
             <Header />
 

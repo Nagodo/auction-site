@@ -13,7 +13,7 @@ interface ListingPageProps {
 
 const ListingPage = ({params}: ListingPageProps) => {
     return (
-        <div className="listingpage bg-zinc-50">
+        <div className="listingpage">
 			<Header />
 
 			<div className="content">
