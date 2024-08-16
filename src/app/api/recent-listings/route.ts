@@ -25,6 +25,8 @@ export async function GET() {
         });
     }
 
+    console.log("done");
+
     return NextResponse.json({
         listings: recentListings
     });

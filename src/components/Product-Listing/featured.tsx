@@ -11,7 +11,7 @@ interface FeaturedListingProps {
 
 const FeaturedListing = ({id, title, thumbnail, price}: FeaturedListingProps) => {
     return (
-        <Link href={"/listings/" + id}>
+        <Link href = {`/listings/${id}}`} >
             <div className="featuredListing">
             
                 <img src={thumbnail}></img>
