@@ -13,26 +13,39 @@ const BetweenValues = ({min, max, onChange}: BetweenValuesProps) => {
     const [values, setValues] = useState<number[]>([min, max]);
 
     function handleMinChange(e: any) {
-        let newValue = [e.target.value, values[1]];
-        setValues(newValue);
-        onChange(newValue);
+
+        let enteredValue = e.target.value;
+        let finalValue = enteredValue;
+
+        if (enteredValue === "") {
+            finalValue = min;
+        }
+
+        setValues([enteredValue, values[1]]);
+        onChange([finalValue, values[1]]);
     }
 
     function handleMaxChange(e: any) {
-        let newValue = [values[0], e.target.value];
-        setValues(newValue);
-        onChange(newValue);
+        let enteredValue = e.target.value;
+        let finalValue = enteredValue;
+
+        if (enteredValue === "") {
+            finalValue = max;
+        }
+
+        setValues([values[0], enteredValue]);
+        onChange([values[0], finalValue]);
     }
 
     return (
         <div className="between-values">
             <div className="input-field">
-                <input type="number" placeholder="Min" onChange={handleMinChange}></input>
+                <input key={1} type="number" placeholder="Min" onChange={handleMinChange}></input>
 
             </div>
             <FaArrowsAltH className="icon" />
             <div className="input-field">
-                <input type="number" placeholder="Max" onChange={handleMaxChange}></input>
+                <input key={2} type="number" placeholder="Max" onChange={handleMaxChange}></input>
             </div>
         </div>
     )

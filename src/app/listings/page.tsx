@@ -20,7 +20,7 @@ async function ListingsPage({ searchParams }: any) {
 			<Header />
 
 			<div className="content">
-				<Filter />
+				<Filter currentSearchQuery = {query} />
 
 				<Suspense fallback={<div>Loading...</div>}>
 					<Listings queryKeywords={searchKeywords} />
