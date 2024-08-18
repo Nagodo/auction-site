@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import { FaArrowsAltH } from "react-icons/fa";
 
 interface BetweenValuesProps {
     min: number;
@@ -25,8 +26,14 @@ const BetweenValues = ({min, max, onChange}: BetweenValuesProps) => {
 
     return (
         <div className="between-values">
-            <input type="number" placeholder="Min" onChange={handleMinChange}></input>
-            <input type="number" placeholder="Max" onChange={handleMaxChange}></input>
+            <div className="input-field">
+                <input type="number" placeholder="Min" onChange={handleMinChange}></input>
+
+            </div>
+            <FaArrowsAltH className="icon" />
+            <div className="input-field">
+                <input type="number" placeholder="Max" onChange={handleMaxChange}></input>
+            </div>
         </div>
     )
 }

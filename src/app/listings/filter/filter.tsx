@@ -33,7 +33,7 @@ const Filter = () => {
                         </div>
 
                         <div className="action" onClick={handleApplyFilterClicked}>
-                            apply
+                            <p className="text">Apply</p>
                         </div>
                     </div>
                     <div className="basic">

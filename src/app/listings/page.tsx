@@ -1,6 +1,6 @@
 import '@/style/listings.scss'
 import Header from '@/components/Header/header'
-import React from 'react'
+import React, { Suspense } from 'react'
 import Listings from './listings';
 import { TextToKeywords } from '@/helpers/keywordGenerator';
 import Filter from './filter/filter';
@@ -22,8 +22,9 @@ async function ListingsPage({ searchParams }: any) {
 			<div className="content">
 				<Filter />
 
-				<Listings queryKeywords={searchKeywords} />
-
+				<Suspense fallback={<div>Loading...</div>}>
+					<Listings queryKeywords={searchKeywords} />
+				</Suspense>
 			</div>
 		</div>
 	)

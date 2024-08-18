@@ -22,6 +22,7 @@ export class FilterHandler {
 
         let formattedValue = value[0] + "-" + value[1];
 
+     
         if (doesIdentifierExist) {
             doesIdentifierExist.value = formattedValue;
         } else {

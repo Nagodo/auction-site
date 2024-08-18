@@ -28,7 +28,7 @@ const Listings = async ({queryKeywords}: ListingsProps) => {
     }
 
     let listings: IListing[] = await fetchListings();
-
+    
 	return (
         
         <div className='listings'>
