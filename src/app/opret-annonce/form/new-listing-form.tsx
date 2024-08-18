@@ -5,7 +5,6 @@ import FormSection from "./form-section";
 
 export default function NewListingForm() {
 
-
     return (
         <div className="new-listing-form">
             <form>

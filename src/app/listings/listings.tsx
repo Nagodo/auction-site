@@ -24,14 +24,10 @@ const Listings = async ({queryKeywords}: ListingsProps) => {
             console.error(error);
         }
 
-        return undefined;
+        return [];
     }
 
     let listings: IListing[] = await fetchListings();
-    
-    if (listings === undefined) {
-        listings = [];
-    }
 
 	return (
         
