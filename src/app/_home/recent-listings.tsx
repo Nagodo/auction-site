@@ -7,6 +7,7 @@ const MostRecentListings = async () => {
 		try {
 			const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/recent-listings`, {
 				method: "GET",
+                next: { revalidate: 60 }
 			});
 
 			if (response.ok) {
