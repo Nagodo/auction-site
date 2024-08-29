@@ -1,19 +1,47 @@
 "use client"
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { FaChevronDown } from "react-icons/fa";
 
 interface ProfileActionProps {
-    profilePicture: string | null | undefined;
+   
 }
 
-const ProfileAction = ({profilePicture}: ProfileActionProps) => {
+const ProfileAction = ({}: ProfileActionProps) => {
     const router = useRouter();
+    const [profileImage, setProfileImage] = useState<string>("/images/profile-default.svg");
     
-    if (profilePicture === null || profilePicture === undefined) {
-        profilePicture = "/images/testimage1.jpg";
-        
+    async function fetchAvatar() {
+
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/profile/getavatar`, {
+                method: 'GET'
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                
+                return data.profileImagePath;
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
+        return null;
     }
+
+    useEffect(() => {
+        async function getAvatar() {
+            let profileImagePath = await fetchAvatar();
+          
+            profileImagePath = profileImagePath === "" ? "/images/profile-default.svg" : profileImagePath;
+
+            setProfileImage(profileImagePath);
+        }
+      
+        getAvatar();
+    }, []); 
 
     function handleProfilePicClicked() {
         router.push('/profile');
@@ -25,7 +53,7 @@ const ProfileAction = ({profilePicture}: ProfileActionProps) => {
                 <FaChevronDown className='icon'/>
             </div>
             <div className='profile-image' onClick={handleProfilePicClicked}>
-                <Image src = {profilePicture} alt = "" fill = {true} className='image' />
+                <Image src = {profileImage} alt = "" fill = {true} className='image' />
 
             </div>
         </div>

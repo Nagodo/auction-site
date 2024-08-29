@@ -20,7 +20,7 @@ const HeaderActions = async () => {
 
             
             {isLoggedIn && (
-                <ProfileAction profilePicture = {session?.user?.image} />
+                <ProfileAction />
             )}
 
             {!isLoggedIn && (   

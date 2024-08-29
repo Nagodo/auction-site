@@ -11,7 +11,28 @@ interface ListingPageProps {
     }
 }
 
-const ListingPage = ({params}: ListingPageProps) => {
+const ListingPage = async ({params}: ListingPageProps) => {
+
+    const listingId = params.id
+
+    const fetchListing = async () => {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/listings/${listingId}`, {
+            method: 'POST',
+            body: JSON.stringify({id: listingId}),
+        });
+
+        if (response.ok) {
+            const data = await response.json()
+            return data
+        }
+
+        return null
+        
+    }
+
+    const listing = await fetchListing()
+    console.log(listing)
+
     return (
         <div className="listingpage">
 			<Header />
@@ -20,7 +41,7 @@ const ListingPage = ({params}: ListingPageProps) => {
 
                 <div className="basic-information">
                     <div className="title">
-                        <h1>Iphone macbook pro 15 512gb og en sej lort pg Iphone macbook pro 15 512gb og en sej</h1>
+                        <h1>{listing.data.title}</h1>
                     </div>
 
                     <div className="seller-info-container">
@@ -46,9 +67,9 @@ export default ListingPage
 
 
 const testImages = [
-    "/images/testimage1.jpg",
-    "/images/testimage2.jpeg",
-    "/images/testimage3.jpg",
-    "/images/testimage4.png",
-    "/images/testimage5.jpg",
+    "/images/testimage1.webp",
+    "/images/testimage1.webp",
+    "/images/testimage1.webp",
+    "/images/testimage1.webp",
+    "/images/testimage1.webp",
 ]
