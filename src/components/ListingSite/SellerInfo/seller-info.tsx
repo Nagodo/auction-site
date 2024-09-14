@@ -12,7 +12,7 @@ const SellerInfo = ({sellerId}: SellerInfoProps) => {
         <div className="seller-info">
             <Link href = {`/profile/${sellerId}`}>
                 <div className="profile-image">
-                    <Image src = {"/images/testimage1.jpg"} alt="" fill = {true}/>
+                    <Image src = {"/images/testimage1.webp"} alt="" fill = {true}/>
                 </div>
             </Link>
         </div>
