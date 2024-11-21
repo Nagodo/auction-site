@@ -5,6 +5,7 @@ import Listings from './listings';
 import { TextToKeywords } from '@/helpers/keywordGenerator';
 import Filter from './filter/filter';
 
+
 async function ListingsPage({ searchParams }: any) {
 	
 	let query = searchParams.query;
